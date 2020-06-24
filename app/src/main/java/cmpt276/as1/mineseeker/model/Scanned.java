@@ -1,3 +1,4 @@
+//To keep track of scanned button, so we can update every time the user scan
 package cmpt276.as1.mineseeker.model;
 
 public class Scanned {

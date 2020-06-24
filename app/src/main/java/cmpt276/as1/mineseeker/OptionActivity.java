@@ -1,3 +1,5 @@
+//Option activity class
+//To change board size, number of mines, and can erase the history saved(times played, and high score for each configuration
 package cmpt276.as1.mineseeker;
 
 import androidx.appcompat.app.AppCompatActivity;

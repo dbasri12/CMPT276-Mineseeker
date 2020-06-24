@@ -1,3 +1,5 @@
+//the Main menu page
+//Allow user to go to either play game, options or help
 package cmpt276.as1.mineseeker;
 
 import androidx.appcompat.app.AppCompatActivity;

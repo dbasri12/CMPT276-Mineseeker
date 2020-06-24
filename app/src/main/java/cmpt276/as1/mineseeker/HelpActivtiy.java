@@ -1,3 +1,5 @@
+//Help activity. For the Help screen
+//Consists of about the author, how to play the game, and link to resources used in this game.
 package cmpt276.as1.mineseeker;
 
 import androidx.appcompat.app.AppCompatActivity;

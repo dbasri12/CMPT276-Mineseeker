@@ -1,3 +1,5 @@
+//congrats class
+//pop up in half size when the user finds all the mines(earths)
 package cmpt276.as1.mineseeker;
 
 import androidx.appcompat.app.AppCompatActivity;

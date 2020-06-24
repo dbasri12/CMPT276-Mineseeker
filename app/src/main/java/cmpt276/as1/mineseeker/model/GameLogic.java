@@ -1,3 +1,4 @@
+//the game logic. Keep rows, columns, and number of mines. each button represented as a 2d array/
 package cmpt276.as1.mineseeker.model;
 
 import java.util.Random;

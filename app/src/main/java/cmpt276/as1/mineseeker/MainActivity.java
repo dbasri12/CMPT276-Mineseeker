@@ -1,3 +1,5 @@
+//the splash screen, or welcome screen class
+//for the splash screen when user open the game, can choose to skip it or not
 package cmpt276.as1.mineseeker;
 
 import androidx.appcompat.app.AppCompatActivity;

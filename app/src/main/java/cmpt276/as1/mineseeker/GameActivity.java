@@ -1,3 +1,5 @@
+//the game activity.
+//when the user clicks play game, this class runs.
 package cmpt276.as1.mineseeker;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -207,7 +209,6 @@ public class GameActivity extends AppCompatActivity {
                 Intent intent=popCongrats.makeIntent(GameActivity.this);
                 startActivity(intent);
             }
-
         }
         else{
             if(mineCounter==player.getMines()){
@@ -261,7 +262,6 @@ public class GameActivity extends AppCompatActivity {
     private void setArrayPrefs(ArrayList<Integer> array) {
         SharedPreferences prefs = this.getSharedPreferences(SHARED_P, MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
-        //editor.putInt("_size", array.size());
         if(array.size()==0){
             for(int i=0;i<12;i++)
                 editor.putInt("_"+i,0);
