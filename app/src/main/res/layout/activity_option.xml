@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OptionActivity">
+    tools:context=".OptionActivity"
+    android:background="@drawable/galaxy_background">
 
     <TextView
         android:id="@+id/textNumMines"
@@ -13,8 +14,31 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Number of Mines"
+        android:fontFamily="@font/antic"
+        android:text="Number of Earths"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/astro_opt"
+        android:layout_width="407dp"
+        android:layout_height="295dp"
+        android:src="@drawable/resize_astopt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnEraseHist" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="218dp"
+        android:layout_height="118dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/resize_chat"
+        app:layout_constraintBottom_toTopOf="@+id/astro_opt"
+        app:layout_constraintStart_toEndOf="@+id/btnEraseHist"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
@@ -34,7 +58,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/antic"
         android:text="Board Size (Row x Col)"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radio_group_minesize" />
 
@@ -57,5 +83,18 @@
         android:text="ERASE HISTORY"
         app:layout_constraintStart_toEndOf="@+id/textBoardSize"
         app:layout_constraintTop_toTopOf="@+id/textNumMines" />
+
+    <TextView
+        android:id="@+id/textChoose"
+        android:layout_width="103dp"
+        android:layout_height="60dp"
+        android:fontFamily="@font/antic"
+        android:text="Choose your settings"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

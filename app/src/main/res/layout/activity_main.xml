@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/galaxy_background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome!!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <ImageView
+        android:id="@+id/imageAst"
+        android:layout_width="607dp"
+        android:layout_height="251dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/astronaut2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -23,6 +25,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
         android:text="by Darryl Basri"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -33,8 +36,36 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@android:drawable/screen_background_dark"
         android:text="Skip"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="396dp"
+        android:layout_height="113dp"
+        android:fontFamily="@font/bangers"
+        android:text="GALAXY INVADER"
+        android:textColor="#FFFFFF"
+        android:textSize="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginBottom="85dp"
+        android:fontFamily="@font/antic"
+        android:text="Can you save humanity?"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

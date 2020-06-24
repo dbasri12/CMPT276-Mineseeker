@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameActivity">
+    tools:context=".GameActivity"
+    android:background="@drawable/galaxy_background">
 
     <TableLayout
         android:id="@+id/table_button"
@@ -34,7 +35,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="Found 0 of 0 mines"
+        android:fontFamily="@font/antic"
+        android:text="Found 0 of 0 Earths"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +48,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="# Scans used :"
+        android:fontFamily="@font/antic"
+        android:text="# Scans Used :"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,7 +61,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/antic"
         android:text="Times Played : "
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -65,7 +72,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/antic"
         android:text="High Score : "
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/textScanUsed"
         app:layout_constraintStart_toEndOf="@+id/textFound"
         app:layout_constraintTop_toTopOf="parent" />

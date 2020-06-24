@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -25,6 +27,7 @@ public class OptionActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
             setContentView(R.layout.activity_option);
             createRadioButton();
             createRadioButton2();
@@ -39,7 +42,14 @@ public class OptionActivity extends AppCompatActivity {
                 final int numPanel = numPanels[i];
 
                 RadioButton button = new RadioButton(this);
-                button.setText(numPanel + " mines");
+                if(numPanel==6)
+                    button.setText("0"+numPanel + " Earths  ");
+                else
+                    button.setText(numPanel + " Earths  ");
+                int whiteColorValue= Color.WHITE;
+                int blackColorValue=Color.BLACK;
+                button.setTextColor(blackColorValue);
+                button.setBackgroundColor(whiteColorValue);
 
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -74,13 +84,17 @@ public class OptionActivity extends AppCompatActivity {
 
             RadioButton button = new RadioButton(this);
             if(numPanel==4){
-                button.setText(numPanel+" x 6");
+                button.setText(numPanel+" x 06  ");
             }
             else if(numPanel==5){
-                button.setText(numPanel+" x 10");
+                button.setText(numPanel+" x 10  ");
             }
             else{
-                button.setText(numPanel+" x 15");}
+                button.setText(numPanel+" x 15  ");}
+            int whiteColorValue= Color.WHITE;
+            button.setTextColor(Color.BLACK);
+            button.setBackgroundColor(whiteColorValue);
+
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

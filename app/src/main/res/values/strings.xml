@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MINESEEKER</string>
+    <string name="sfu_website"><a href="https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home">https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home</a></string>
+    <string name="resources">Resources</string>
+    <string name="pictures_from">Pictures from : </string>
+    <string name="background_from">Background from : </string>
+    <string name="picture_web"><a href="https://www.pngguru.com/">https://www.pngguru.com/</a></string>
+    <string name="background_web"><a href="https://www.hiclipart.com/">https://www.hiclipart.com/</a></string>
 </resources>

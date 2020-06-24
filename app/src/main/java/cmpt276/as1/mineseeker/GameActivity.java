@@ -11,6 +11,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -54,6 +55,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
         checkIntentDelete();
         extractDataFromIntent();
@@ -61,7 +63,7 @@ public class GameActivity extends AppCompatActivity {
         highest=getArrayPrefs(this);
         numberGamesCounter=GameActivity.getGameNumber(this);
         TextView textFoundMine=(TextView)findViewById(R.id.textFound);
-        textFoundMine.setText("Found " +mineCounter+ " of "+player.getMines()+" mines.");
+        textFoundMine.setText("Found " +mineCounter+ " of "+player.getMines()+" Earths.");
         TextView textTimesPlayed=(TextView)findViewById(R.id.textNumPlayed);
         textTimesPlayed.setText("Times Played : "+numberGamesCounter);
         if(highest.size()!=0){
@@ -176,12 +178,12 @@ public class GameActivity extends AppCompatActivity {
         if(player.getGameBoard(row,col)==0) {
             mineCounter+=1;
             TextView textFoundMine=(TextView)findViewById(R.id.textFound);
-            textFoundMine.setText("Found " +mineCounter+ " of "+player.getMines()+" mines.");
+            textFoundMine.setText("Found " +mineCounter+ " of "+player.getMines()+" Earths.");
             Button button=buttons[row][col];
             lockButtonSizes();
             int newWidth=button.getWidth();
             int newHeight=button.getHeight();
-            Bitmap originalBitmap= BitmapFactory.decodeResource(getResources(),R.drawable.crystal_clear_app_linneighborhood);
+            Bitmap originalBitmap= BitmapFactory.decodeResource(getResources(),R.drawable.earth3);
             Bitmap scaledBitmap=Bitmap.createScaledBitmap(originalBitmap,newWidth,newHeight,true);
             Resources resource=getResources();
             button.setBackground(new BitmapDrawable(resource,scaledBitmap));

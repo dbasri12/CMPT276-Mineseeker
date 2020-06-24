@@ -4,15 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:background="@drawable/galaxy_background">
+
+    <ImageView
+        android:layout_width="257dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/hanging_ast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textMainMenu" />
+
+    <ImageView
+        android:layout_width="312dp"
+        android:layout_height="363dp"
+        android:src="@drawable/rocket"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonOpt"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textMainMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="163dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/bangers"
         android:text="MAIN MENU"
-        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,11 +42,10 @@
         android:id="@+id/buttonPlay"
         android:layout_width="256dp"
         android:layout_height="65dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="24dp"
         android:text="Play Game"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textMainMenu" />
 
@@ -33,11 +53,10 @@
         android:id="@+id/buttonOpt"
         android:layout_width="256dp"
         android:layout_height="65dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="24dp"
         android:text="OPTIONS"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonPlay" />
 
@@ -45,11 +64,10 @@
         android:id="@+id/buttonHelp"
         android:layout_width="256dp"
         android:layout_height="65dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:text="HELP"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonOpt" />
 

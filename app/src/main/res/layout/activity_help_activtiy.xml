@@ -4,18 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HelpActivtiy">
-
-    <TextView
-        android:id="@+id/textHelp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="HELP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".HelpActivtiy"
+    android:background="@drawable/galaxy_background">
 
     <TextView
         android:id="@+id/text"
@@ -24,31 +14,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/antic"
         android:text="About the Author :"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textHelp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Darryl J. Basri, SFU student major in Computing Science (https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home) "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text" />
-
-    <TextView
-        android:id="@+id/textHowGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="How to Play "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView7"
@@ -57,9 +27,23 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/antic"
         android:text="1. In order to save humanity, we need to find as many as possible Earth-like planets"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textHowGame" />
+
+    <TextView
+        android:id="@+id/testPicturefrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/antic"
+        android:text="@string/pictures_from"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textResources" />
 
     <TextView
         android:id="@+id/textView8"
@@ -67,19 +51,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:fontFamily="@font/antic"
         android:text="2. Click on the galaxy where you think we might find the next Earth!"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="3. If you clicked on the wrong galaxy, a scanner will be used to scan for an Earth-like planet in that row and columns"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView10"
@@ -87,7 +63,117 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:fontFamily="@font/antic"
         android:text="4.Try to use as little scanner as possible!"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/antic"
+        android:text="3. If you clicked on the wrong galaxy, a scanner will be used to scan for an Earth-like planet in that row and columns"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textResources"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/antic"
+        android:text="@string/resources"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/antic"
+        android:text="HELP"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textSFUWEb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/antic"
+        android:text="@string/sfu_website"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/antic"
+        android:text="@string/picture_web"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/testPicturefrom"
+        app:layout_constraintTop_toBottomOf="@+id/textResources" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/antic"
+        android:text="Darryl J. Basri, SFU student major in Computing Science"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <TextView
+        android:id="@+id/textbackweb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/antic"
+        android:text="@string/background_web"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/textbackfrom"
+        app:layout_constraintTop_toBottomOf="@+id/testPicturefrom" />
+
+    <TextView
+        android:id="@+id/textHowGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/antic"
+        android:text="How to Play "
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSFUWEb" />
+
+    <TextView
+        android:id="@+id/textbackfrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/antic"
+        android:text="@string/background_from"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testPicturefrom" />
 </androidx.constraintlayout.widget.ConstraintLayout>
