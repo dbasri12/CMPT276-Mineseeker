@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         setupOptionsButton();
         setupGameButton();
+        setupHelpButton();
         refresh();
     }
     public static Intent makeIntent(Context context){
@@ -45,6 +46,16 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=GameActivity.makeIntent(HomeActivity.this,gameLogic);
+                startActivity(intent);
+            }
+        });
+    }
+    private void setupHelpButton(){
+        Button helpBtn=(Button)findViewById((R.id.buttonHelp));
+        helpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=HelpActivtiy.makeIntent(HomeActivity.this);
                 startActivity(intent);
             }
         });
