@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Animation topAnim,bottomAnim;
     ImageView astronaut;
     TextView title,subtitle;
+    Intent homeIntent;
 
 
     @Override
@@ -43,12 +44,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         setupSkipButton();
+
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                Intent homeIntent=new Intent(MainActivity.this,HomeActivity.class);
+                if(homeIntent!=null)
+                    finish();
+                else{
+                homeIntent=new Intent(MainActivity.this,HomeActivity.class);
                 startActivity(homeIntent);
-                finish();
+                finish();}
             }
         },SPLASH_TIME_OUT);
 
@@ -60,11 +65,10 @@ public class MainActivity extends AppCompatActivity {
         skipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentHome=new Intent(MainActivity.this,HomeActivity.class);
-                startActivity(intentHome);
-
+                homeIntent=new Intent(MainActivity.this,HomeActivity.class);
+                startActivity(homeIntent);
+                finish();
             }
         });
-        //finish();
     }
 }
