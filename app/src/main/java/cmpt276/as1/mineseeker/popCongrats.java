@@ -35,6 +35,7 @@ public class popCongrats extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=HomeActivity.makeIntent(popCongrats.this);
                 startActivity(intent);
+                finish();
             }
         });
     }
