@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".popCongrats"
-            android:theme="@style/AppTheme.CustomPop"></activity>
+        <activity android:name=".HelpActivtiy"></activity>
+        <activity
+            android:name=".popCongrats"
+            android:theme="@style/AppTheme.CustomPop" />
         <activity android:name=".GameActivity" />
         <activity android:name=".OptionActivity" />
         <activity android:name=".HomeActivity" />
@@ -24,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
