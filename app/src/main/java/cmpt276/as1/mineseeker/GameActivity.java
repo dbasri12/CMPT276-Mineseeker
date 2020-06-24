@@ -162,6 +162,10 @@ public class GameActivity extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
+
+                Bitmap originalBitmap= BitmapFactory.decodeResource(getResources(),R.drawable.resize_btngalaxy);
+                Resources resource=getResources();
+                button.setBackground(new BitmapDrawable(resource,originalBitmap));
                 button.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
