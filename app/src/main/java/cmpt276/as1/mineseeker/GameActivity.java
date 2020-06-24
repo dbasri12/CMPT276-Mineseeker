@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,11 +15,17 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import cmpt276.as1.mineseeker.model.GameLogic;
+import cmpt276.as1.mineseeker.model.Scanned;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -26,15 +33,21 @@ public class GameActivity extends AppCompatActivity {
     private static final String EXTRA_ROW="the row";
     private static final String EXTRA_COLUMN="the column";
     private static final String EXTRA_MINES="the mines";
+    private static final String SHARED_P="shared preferences";
+    private static final String task_list="task list";
 
-    //public static final int NUM_ROWS = 4;
-    //public static final int NUM_COLS=6;
-    //public GameLogic player=new GameLogic(NUM_ROWS,NUM_COLS,4);
+
     private GameLogic player;
+    private int numberGamesCounter;
+
+    private ArrayList<Integer> highest=new ArrayList<Integer>(12);
+    private ArrayList<Scanned> scanned=new ArrayList<Scanned>();
+    private int index;
+    private int rowForHigh;
+    private int colForHigh;
 
     Button buttons[][];
-    //int[] keepRow=new int[player.getNUM_ROWS()];
-    //int[] keepCol=new int[player.getNUM_COLUMNS()];
+
     int mineCounter=0;
     int scanCounter=0;
 
@@ -42,10 +55,36 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        checkIntentDelete();
         extractDataFromIntent();
+        //populateHighest();
+        highest=getArrayPrefs(this);
+        numberGamesCounter=GameActivity.getGameNumber(this);
         TextView textFoundMine=(TextView)findViewById(R.id.textFound);
         textFoundMine.setText("Found " +mineCounter+ " of "+player.getMines()+" mines.");
+        TextView textTimesPlayed=(TextView)findViewById(R.id.textNumPlayed);
+        textTimesPlayed.setText("Times Played : "+numberGamesCounter);
+        if(highest.size()!=0){
+        TextView textHighScore=(TextView)findViewById(R.id.textHighscore);
+        textHighScore.setText("High Score : "+highest.get(index));}
         populateButtons();
+    }
+    private void populateHighest(){
+        for(int i=0;i<12;i++){
+            highest.add(-1);
+        }
+    }
+    private void checkIntentDelete(){
+        Intent intent=getIntent();
+        if(intent.getIntExtra("Delete",0)==-1){
+            highest.clear();
+            setArrayPrefs(highest);
+            numberGamesCounter=0;
+            saveGameNumber(numberGamesCounter);
+            intent=HomeActivity.makeIntent(GameActivity.this);
+            startActivity(intent);
+            finish();
+        }
     }
     private void extractDataFromIntent() {
         Intent intent=getIntent();
@@ -54,12 +93,54 @@ public class GameActivity extends AppCompatActivity {
         int minesI=intent.getIntExtra(EXTRA_MINES,6);
         player=new GameLogic(rowI,colI,minesI);
         buttons=new Button[rowI][colI];
+
+        if(rowI==4 &&minesI==6){
+            index=0;
+        }
+        else if(rowI==4&&minesI==10){
+            index=1;
+        }
+        else if(rowI==4&&minesI==15){
+            index=2;
+        }
+        else if(rowI==4&&minesI==20){
+            index=3;
+        }
+        else if(rowI==5&&minesI==6){
+            index=4;
+        }
+        else if(rowI==5&&minesI==10){
+            index=5;
+        }
+        else if(rowI==5&&minesI==15){
+            index=6;
+        }
+        else if(rowI==5&&minesI==20){
+            index=7;
+        }
+        else if(rowI==6&&minesI==6){
+            index=8;
+        }
+        else if(rowI==6&&minesI==10){
+            index=9;
+        }
+        else if(rowI==6&&minesI==15){
+            index=10;
+        }
+        else{
+            index=11;
+        }
     }
     public static Intent makeIntent(Context context,GameLogic gameLogic){
         Intent intent=new Intent(context,GameActivity.class);
         intent.putExtra(EXTRA_ROW,gameLogic.getNUM_ROWS());
         intent.putExtra(EXTRA_COLUMN,gameLogic.getNUM_COLUMNS());
         intent.putExtra(EXTRA_MINES,gameLogic.getMines());
+        return intent;
+    }
+    public static Intent makeIntent2(Context context){
+        Intent intent=new Intent(context,GameActivity.class);
+        intent.putExtra("Delete",-1);
         return intent;
     }
     private void populateButtons(){
@@ -105,7 +186,18 @@ public class GameActivity extends AppCompatActivity {
             Resources resource=getResources();
             button.setBackground(new BitmapDrawable(resource,scaledBitmap));
             player.setGameBoard(row,col);
+            refreshGameBoard();
             if(mineCounter==player.getMines()){
+                if(highest.get(index)==0){
+                    highest.set(index,scanCounter);
+                    setArrayPrefs(highest);
+                }
+                else if(scanCounter<highest.get(index)){
+                    highest.set(index,scanCounter);
+                    setArrayPrefs(highest);
+                }
+                numberGamesCounter+=1;
+                saveGameNumber(numberGamesCounter);
                 Intent intent=popCongrats.makeIntent(GameActivity.this);
                 startActivity(intent);
             }
@@ -119,10 +211,17 @@ public class GameActivity extends AppCompatActivity {
             else{
            scanForMine(row,col);
            scanCounter+=1;
+           Scanned temp=new Scanned(row,col);
+           scanned.add(temp);
             TextView textScanUsed=(TextView)findViewById(R.id.textScanUsed);
             textScanUsed.setText("# Scans used: " +scanCounter);}
         }
 
+    }
+    private void refreshGameBoard(){
+        for(int i=0;i<scanned.size();i++){
+            scanForMine(scanned.get(i).getRowS(),scanned.get(i).getColS());
+        }
     }
     private void scanForMine(int row,int col){
         Button button=buttons[row][col];
@@ -142,5 +241,35 @@ public class GameActivity extends AppCompatActivity {
                 button.setMaxHeight(height);
             }
         }
+    }
+    private void saveGameNumber(int gameNumber){
+        SharedPreferences prefs=this.getSharedPreferences("AppPrefs",MODE_PRIVATE);
+        SharedPreferences.Editor editor=prefs.edit();
+        editor.putInt("Times Played",gameNumber);
+        editor.apply();
+    }
+    static public int getGameNumber(Context context){
+        SharedPreferences prefs=context.getSharedPreferences("AppPrefs",MODE_PRIVATE);
+        return prefs.getInt("Times Played",0);
+    }
+    private void setArrayPrefs(ArrayList<Integer> array) {
+        SharedPreferences prefs = this.getSharedPreferences(SHARED_P, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        //editor.putInt("_size", array.size());
+        if(array.size()==0){
+            for(int i=0;i<12;i++)
+                editor.putInt("_"+i,0);
+        }
+        else{for(int i=0;i<12;i++)//array.size();i++)
+            editor.putInt("_" + i, array.get(i));}
+        editor.apply();
+    }
+    static public ArrayList<Integer> getArrayPrefs(Context mContext) {
+        SharedPreferences prefs = mContext.getSharedPreferences(SHARED_P, MODE_PRIVATE);
+        int size = 12;//prefs.getInt("_size", 12);
+        ArrayList<Integer> array = new ArrayList<>(size);
+        for(int i=0;i<size;i++)
+            array.add(prefs.getInt("_" + i, 0));
+        return array;
     }
 }

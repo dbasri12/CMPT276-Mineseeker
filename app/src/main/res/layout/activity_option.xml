@@ -48,4 +48,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textBoardSize" />
 
+    <Button
+        android:id="@+id/btnEraseHist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="ERASE HISTORY"
+        app:layout_constraintStart_toEndOf="@+id/textBoardSize"
+        app:layout_constraintTop_toTopOf="@+id/textNumMines" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

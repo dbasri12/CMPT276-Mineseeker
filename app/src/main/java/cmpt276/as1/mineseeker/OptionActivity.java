@@ -8,10 +8,16 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.util.ArrayList;
+
+import cmpt276.as1.mineseeker.model.Scanned;
+
 public class OptionActivity extends AppCompatActivity {
+    private ArrayList<Integer> highest=new ArrayList<Integer>();
     public static Intent makeIntent(Context context){
         return new Intent(context,OptionActivity.class);
     }
@@ -22,6 +28,7 @@ public class OptionActivity extends AppCompatActivity {
             setContentView(R.layout.activity_option);
             createRadioButton();
             createRadioButton2();
+            setupDeleteBtn();
         }
 
         private void createRadioButton() {
@@ -97,6 +104,17 @@ public class OptionActivity extends AppCompatActivity {
         SharedPreferences prefs=context.getSharedPreferences("AppPrefs",MODE_PRIVATE);
         int defaultValue=context.getResources().getInteger(R.integer.default_board_size);
         return prefs.getInt("Board Size",defaultValue);
+    }
+    private void setupDeleteBtn(){
+        Button delBtn=(Button)findViewById(R.id.btnEraseHist);
+        delBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=GameActivity.makeIntent2(OptionActivity.this);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
 }

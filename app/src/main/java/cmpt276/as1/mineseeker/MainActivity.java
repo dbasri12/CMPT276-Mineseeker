@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG="Orientation";
-    private static int SPLASH_TIME_OUT=4000;
+    private static int SPLASH_TIME_OUT=6000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 Intent homeIntent=new Intent(MainActivity.this,HomeActivity.class);
                 startActivity(homeIntent);
-                //finish();
+                finish();
             }
         },SPLASH_TIME_OUT);
 
@@ -36,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentHome=new Intent(MainActivity.this,HomeActivity.class);
                 startActivity(intentHome);
-                finish();
+
             }
         });
+        //finish();
     }
 }
